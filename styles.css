@@ -5,34 +5,81 @@
     height: 450px;
     position: relative;
 }
-@media (min-width: 768px) {
-    .servicios {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 1rem;
-    }
-}
-.servicio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: black 2px solid;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-.servicio h3 { 
-    color: var(--secundario);
-    font-weight: normal;
-}
-.servicio p {
-    line-height: 2;
-    text-align: center;
-}
-.servicio .iconos{
-    height: 15rem;
-    width: 15rem;
-    background-color: rgb(240, 141, 141);
+/* Estilos generales para la sección */
+.features-section {
+    text-align: center; /* Centra el título */
+    padding: 40px 20px; /* Espacio alrededor de la sección */
+    background-color: #f8f8f8; /* Un fondo ligeramente gris para diferenciar la sección */
+  }
+  
+  .features-section h2 {
+    margin-bottom: 40px; /* Espacio debajo del título principal */
+    font-size: 2em; /* Tamaño del título */
+    color: #333;
+  }
+  
+  /* Contenedor de las tarjetas para organizarlas */
+  .cards-container {
+    display: flex; /* Usa Flexbox para alinear las tarjetas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 20px; /* Espacio entre las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en filas si no caben */
+  }
+  
+  /* Estilos para cada tarjeta individual */
+  .feature-card {
+    background-color: #fff; /* Fondo blanco para la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 30px; /* Espacio dentro de la tarjeta */
+    width: 300px; /* Ancho fijo para cada tarjeta (ajusta si es necesario) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: flex; /* Usa Flexbox para organizar el contenido interno (icono, título, texto) */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente dentro de la tarjeta */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
+  }
+  
+  /* Estilos para el contenedor del círculo y el icono (reutilizamos lo anterior) */
+  .icono-circulo-contenedor {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    background-color: #ffebee; /* Color rosa claro para el círculo */
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;  
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Espacio debajo del círculo */
+  }
+  
+  .icono {
+    max-width: 60%; /* Ajusta el tamaño del icono dentro del círculo */
+    max-height: 60%;
+    display: block;
+    /* Color del icono, si es una imagen SVG o se puede estilizar */
+    /* Si es un archivo .png o .jpg, el color viene de la imagen */
+  }
+  
+  /* Estilos para el título de la tarjeta */
+  .feature-card h3 {
+    margin-top: 0; /* Elimina el margen superior por defecto */
+    margin-bottom: 10px; /* Espacio debajo del título */
+    font-size: 1.3em;
+    color: #333;
+  }
+  
+  /* Estilos para la descripción de la tarjeta */
+  .feature-card p {
+    margin-top: 0; /* Elimina el margen superior por defecto */
+    color: #555;
+    line-height: 1.5; /* Espacio entre líneas de texto */
+  }
+  
+  .icono {
+    /* Estilos opcionales para el icono dentro del círculo */
+    max-width: 70%; /* Evita que el icono sea más grande que el 70% del contenedor */
+    max-height: 70%; /* Ajusta el tamaño máximo del icono */
+    display: block; /* Ayuda a centrar */
+  }
+a {
+    text-decoration: none;
 }

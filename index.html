@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pizza Express</title>
     <link rel="shortcut icon" href="icons8-pizza-48.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -50,57 +50,161 @@
     </div>
     <main class="contenedor sombra">
 
-        <h2 class="fw-bold text-center p-5">¿Porqué elgir Pizza Express?</h2>
-        <div class="servicios">
 
-            <section class="servicio">
-                <h3>Pedidos Fáciles</h3>
-                <div class="iconos">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round" width="100" height="100" stroke-width="2">
-                        <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2">
-                        </path>
-                        <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
-                    </svg>
+        <section class="features-section">
+            <h2 class="fw-bold text-center p-5">¿Porqué elgir Pizza Express?</h2>
+            <div class="cards-container">
+
+                <div class="feature-card">
+                    <div class="icono-circulo-contenedor">
+                        <svg class="icono" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="50" height="50"
+                            stroke-width="2">
+                            <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2">
+                            </path>
+                            <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3>Pedidos Fáciles</h3>
+                    <p>Ordena en línea de forma rápida y sencilla. Personaliza tu pizza como más te guste.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icono-circulo-contenedor">
+                        <svg class="icono" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="100"
+                            height="100" stroke-width="2">
+                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                            <path d="M12 12l3 2"></path>
+                            <path d="M12 7v5"></path>
+                        </svg>
+                    </div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Tu pizza llegará caliente y en tiempo récord. Seguimiento en tiempo real de tu pedido.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icono-circulo-contenedor">
+                        <svg class="icono" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="100"
+                            height="100" stroke-width="2">
+                            <path d="M9 3l6 0"></path>
+                            <path d="M10 9l4 0"></path>
+                            <path d="M10 3v6l-4 11a.7 .7 0 0 0 .5 1h11a.7 .7 0 0 0 .5 -1l-4 -11v-6"></path>
+                        </svg>
+                    </div>
+                    <h3>Ingredientes Premium</h3>
+                    <p>Seleccionamos los mejores ingredientes frescos para ofrecerte una experiencia única.</p>
+                </div>
+
+            </div>
+        </section>
+        <section class="my-5">
+            <div class="container">
+                <div class="row text-center mb-4">
+                    <div class="col-12">
+                        <h2 class="fw-bold">Nuestras Pizzas Más Populares</h2>
+                        <p class="lead">Descubre deliciosas creaciones que han conquistado a nuestros clientes</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100"> <img src="pizza_m.jpeg" class="card-img-top"
+                                alt="Margherita Pizza">
+                            <div class="card-body">
+                                <h5 class="card-title">Margherita</h5>
+                                <p class="card-text">La clásica pizza italiana con salsa de tomate, mozzarella y
+                                    albahaca fresca.</p>
+                                <a href="#" class="stretched-link text-danger">Ver en el menú &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="pizza-pepperoni-no-existe-italia-152140.jpeg" class="card-img-top" alt="Pepperoni Pizza">
+                            <div class="card-body">
+                                <h5 class="card-title">Pepperoni</h5>
+                                <p class="card-text">Pizza con abundante pepperoni y queso mozzarella derretido. ¡Un
+                                    clásico favorito!</p>
+                                <a href="#" class="stretched-link text-danger">Ver en el menú &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="pizza_v.jpeg" class="card-img-top" alt="Vegetariana Pizza">
+                            <div class="card-body">
+                                <h5 class="card-title">Vegetariana</h5>
+                                <p class="card-text">Una deliciosa opción con variedad de vegetales frescos y queso
+                                    mozzarella.</p>
+                                <a href="#" class="stretched-link text-danger">Ver en el menú &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
-                <p>
-                    Ordena en línea de forma rápida y sencilla. Personaliza tu pizza como más te guste.
-                </p>
-            </section>
-
-            <section class="servicio">
-                <h3>Entrega Rápida
-                </h3>
-                <div class="iconos">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round" width="100" height="100" stroke-width="2">
-                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                        <path d="M12 12l3 2"></path>
-                        <path d="M12 7v5"></path>
-                    </svg>
+                <div class="row mt-4">
+                    <div class="col-12 text-center"> <a href="#" class="btn btn-danger btn-lg">Ver Menú Completo
+                            &rarr;</a> </div>
                 </div>
-                <p>
-                    Tu pizza llegará caliente y en tiempo récord. Seguimiento en tiempo real de tu pedido.
-                </p>
-            </section>
 
-            <section class="servicio">
-                <h3>Ingredientes Premium</h3>
-                <div class="iconos">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round" width="100" height="100" stroke-width="2">
-                        <path d="M9 3l6 0"></path>
-                        <path d="M10 9l4 0"></path>
-                        <path d="M10 3v6l-4 11a.7 .7 0 0 0 .5 1h11a.7 .7 0 0 0 .5 -1l-4 -11v-6"></path>
-                    </svg>
+            </div>
+        </section>
+        <section class="bg-danger py-5 mt-5">
+            <div class="container-fluid w-75">
+                <div class="row allign-items-center justify-content-center text-light">
+                    <div class="col-md-6 d-flex align-items-center justify-content-center flex-column text-center">
+                        <h2 class="fw-bold">¡Ordena ahora y recibe promociones especiales!</h2>
+                        <p>Registrate hoy y obtén descuentos exclusivos en tu primera orden.
+                            ¡LA MEJOR PIZZA A UN CLIC DE DISTANCIA!</p>
+                        </p>
+                        <div class="d-flex gap-3 justify-content-center mt-4">
+                            <button class="btn-light rounded-2 btn-lg"><a href=""
+                                    class="text-danger">Registrarse</a></button>
+                            <button class="btn-lg btn-danger"><a href="" class="text-light">Ver menú</a></button>
+                        </div>
+                    </div>
                 </div>
-                <p>
-                    Seleccionamos los mejores ingredientes frescos para ofrecerte una experiencia única.
-                </p>
-            </section>
-        </div>
+        </section>
     </main>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Pizza Express</h5>
+                    <p>Deliciosas pizzas artesanales hechas con los mejores
+                        ingredientes y mucho amor.</p>
+
+                </div>
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li>(555) 123-4567</li>
+                        <li>info@pizzaexpress.com</li>
+                        <li>Av Principal 123, Ciudad</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Horario</h5>
+                    <ul class="list-unstyled">
+                        <li>Lunes - Jueves 11:00 - 22:00</li>
+                        <li>Viernes - Sábado 11:00 - 23:00</li>
+                        <li>Domingo 12:00 - 22:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="border: 1px solid #ccc; margin: 20px 0;">
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p>&copy; 2025 Mi Empresa. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
