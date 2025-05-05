@@ -1,0 +1,38 @@
+.img {
+    background-image: url(/e9e1e82cb873-pepperoni-pizza-abob-t.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+}
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem;
+    }
+}
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: black 2px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.servicio h3 { 
+    color: var(--secundario);
+    font-weight: normal;
+}
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: rgb(240, 141, 141);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;  
+}
