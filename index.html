@@ -19,14 +19,14 @@
         <div class="d-inline-block p-5 text-left w-25">
             <h2 class="fw-bold">Las mejores pizzas artesanales</h2>
             <p>Ingredientes frescos, masa perfecta y el sabor auténtico de la pizza italiana</p>
-            <button class="btn btn-danger">Ver Menú</button>
+            <button class="btn btn-danger"><a class="text-light" href="menu.html">Ver Menú</a></button>
         </div>
     </div>
     <main class="contenedor sombra">
 
 
         <section class="features-section">
-            <h2 class="fw-bold text-center p-5">¿Porqué elgir Pizza Express?</h2>
+            <h2 class="fw-bold text-center p-2">¿Porqué elegir Pizza Express?</h2>
             <div class="cards-container">
 
                 <div class="feature-card">
@@ -91,19 +91,20 @@
                                 <h5 class="card-title">Margherita</h5>
                                 <p class="card-text">La clásica pizza italiana con salsa de tomate, mozzarella y
                                     albahaca fresca.</p>
-                                <a href="#" class="stretched-link text-danger">Ver en el menú &rarr;</a>
+                                <a href="menu.html" class="stretched-link text-danger">Ver en el menú &rarr;</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-4 mb-4">
                         <div class="card h-100">
-                            <img src="img/pizza-pepperoni-no-existe-italia-152140.jpeg" class="card-img-top" alt="Pepperoni Pizza">
+                            <img src="img/pizza-pepperoni-no-existe-italia-152140.jpeg" class="card-img-top"
+                                alt="Pepperoni Pizza">
                             <div class="card-body">
                                 <h5 class="card-title">Pepperoni</h5>
                                 <p class="card-text">Pizza con abundante pepperoni y queso mozzarella derretido. ¡Un
                                     clásico favorito!</p>
-                                <a href="#" class="stretched-link text-danger">Ver en el menú &rarr;</a>
+                                <a href="menu.html" class="stretched-link text-danger">Ver en el menú &rarr;</a>
                             </div>
                         </div>
                     </div>
@@ -115,14 +116,14 @@
                                 <h5 class="card-title">Vegetariana</h5>
                                 <p class="card-text">Una deliciosa opción con variedad de vegetales frescos y queso
                                     mozzarella.</p>
-                                <a href="#" class="stretched-link text-danger">Ver en el menú &rarr;</a>
+                                <a href="menu.html" class="stretched-link text-danger">Ver en el menú &rarr;</a>
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <div class="row mt-4">
-                    <div class="col-12 text-center"> <a href="#" class="btn btn-danger btn-lg">Ver Menú Completo
+                    <div class="col-12 text-center"> <a href="menu.html" class="btn btn-danger btn-lg">Ver Menú Completo
                             &rarr;</a> </div>
                 </div>
 
@@ -137,53 +138,32 @@
                             ¡LA MEJOR PIZZA A UN CLIC DE DISTANCIA!</p>
                         </p>
                         <div class="d-flex gap-3 justify-content-center mt-4">
-                            <button class="btn-light rounded-2 btn-lg"><a href=""
-                                    class="text-danger" href="/PizzaExpress/registro.html">Registrarse</a></button>
-                            <button class="btn-lg btn-danger"><a href="" class="text-light">Ver menú</a></button>
+                            <button class="btn-light rounded-2 btn-lg"><a class="text-danger"
+                                    href="registro.html">Registrarse</a></button>
+                            <button class="btn-lg btn-danger"><a href="menu.html" class="text-light">Ver
+                                    menú</a></button>
                         </div>
                     </div>
                 </div>
         </section>
     </main>
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Pizza Express</h5>
-                    <p>Deliciosas pizzas artesanales hechas con los mejores
-                        ingredientes y mucho amor.</p>
+    <div id="footer">
 
-                </div>
-                <div class="col-md-4">
-                    <h5>Contacto</h5>
-                    <ul class="list-unstyled">
-                        <li>(555) 123-4567</li>
-                        <li>info@pizzaexpress.com</li>
-                        <li>Av Principal 123, Ciudad</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Horario</h5>
-                    <ul class="list-unstyled">
-                        <li>Lunes - Jueves 11:00 - 22:00</li>
-                        <li>Viernes - Sábado 11:00 - 23:00</li>
-                        <li>Domingo 12:00 - 22:00</li>
-                    </ul>
-                </div>
-            </div>
-            <hr style="border: 1px solid #ccc; margin: 20px 0;">
-            <div class="row mt-4">
-                <div class="col text-center">
-                    <p>&copy; 2025 Mi Empresa. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
+    <script>
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
     <script>
         fetch('navbar.html')
-          .then(res => res.text())
-          .then(data => {
-            document.getElementById('navbar').innerHTML = data;
-          });
-      </script>
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+</body>
+
 </html>
