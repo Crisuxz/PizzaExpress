@@ -1,0 +1,84 @@
+.img {
+  background-image: url(/img/e9e1e82cb873-pepperoni-pizza-abob-t.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  position: relative;
+}
+
+.features-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f8f8f8;
+}
+
+.features-section h2 {
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: #333;
+}
+
+/* Contenedor de las tarjetas para organizarlas */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Estilos para cada tarjeta individual */
+.feature-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Estilos para el contenedor del círculo y el icono (reutilizamos lo anterior) */
+.icono-circulo-contenedor {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ffebee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icono {
+  max-width: 60%;
+  max-height: 60%;
+  display: block;
+}
+
+/* Estilos para el título de la tarjeta */
+.feature-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  color: #333;
+}
+
+/* Estilos para la descripción de la tarjeta */
+.feature-card p {
+  margin-top: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.icono {
+  /* Estilos opcionales para el icono dentro del círculo */
+  max-width: 70%;
+  max-height: 70%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
