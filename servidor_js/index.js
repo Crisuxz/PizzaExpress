@@ -107,6 +107,7 @@ app.post('/login', async (req, res) => {
     // Guardar información del usuario en la sesión
     req.session.usuario = { id: user.id, fullname: user.fullname, email: user.email };
     res.json({ success: true, message: 'Inicio de sesión exitoso.' });
+    window.location.href = 'index.html'; // Redirigir al index después de iniciar sesión
   } catch (error) {
     console.error('❌ Error en el servidor:', error);
     res.json({ success: false, message: 'Error en el servidor.' });
