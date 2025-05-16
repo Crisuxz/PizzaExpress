@@ -4,7 +4,8 @@
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules/  # Muy importante para tu error
+  - node_modules/
+  - servidor_js/   # Excluye toda la carpeta servidor_js
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
