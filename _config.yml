@@ -1,0 +1,21 @@
+# Archivo de configuración de Jekyll: _config.yml
+
+# Excluir directorios y archivos del procesamiento de Jekyll
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/  # Muy importante para tu error
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  # - README.md    # Descomenta esta línea si tu README.md principal no debe ser una página del sitio
+  # - LICENCE.md   # Descomenta si tienes un archivo de licencia que no es una página
+
+# Recomendado: especificar la codificación
+encoding: utf-8
+
+# Aquí puedes añadir otras configuraciones de Jekyll más adelante si las necesitas,
+# como el título de tu sitio, descripción, tema, etc.
+# title: Mi Increíble Sitio
+# theme: minima
