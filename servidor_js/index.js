@@ -7,6 +7,8 @@ const bodyParser = require('body-parser'); // Parseo de datos del cuerpo de las 
 const bcrypt = require('bcrypt'); // Encriptación de contraseñas
 const mysql = require('mysql2'); // Conexión a MySQL
 const path = require('path'); // Manejo de rutas de archivos
+const { isAdmin } = require('./adminUsers'); // <--- Agregado para admins predefinidos
+const requireLogin = require('./middleware/auth'); // Agrega esta línea
 
 // =======================
 // Inicializar la aplicación
@@ -77,6 +79,11 @@ app.get('/', (req, res) => {
   }
 });
 
+// Ruta protegida para pedidos
+app.get('/pedidos.html', requireLogin, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pedidos.html'));
+});
+
 // Ruta para iniciar sesión (desde formulario tradicional)
 app.post('/login', async (req, res) => {
   const email = req.body.email.trim().toLowerCase(); // <-- Normaliza el email
@@ -86,6 +93,13 @@ app.post('/login', async (req, res) => {
     return res.json({ success: false, message: 'Todos los campos son obligatorios.' });
   }
 
+  // Primero, revisa si es un admin predefinido
+  if (isAdmin(email, password)) {
+    req.session.usuario = { email, isAdmin: true };
+    return res.json({ success: true, message: 'Inicio de sesión como administrador.' });
+  }
+
+  // Si no es admin, sigue con la lógica normal de usuarios
   try {
     const [rows] = await db.promise().query('SELECT * FROM usuarios WHERE email = ?', [email]);
     if (rows.length === 0) {

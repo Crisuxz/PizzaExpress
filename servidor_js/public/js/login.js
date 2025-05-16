@@ -27,6 +27,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     }
 
     if (data.success) {
+      localStorage.setItem("usuarioActual", email); // <-- Agrega esto
       alert('✅ Inicio de sesión exitoso. Redirigiendo...');
       window.location.href = '/'; // Redirige al inicio
     } else {
@@ -37,3 +38,10 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     alert('❌ Error en el servidor. Inténtalo más tarde.');
   }
 });
+
+if (!localStorage.getItem("usuarioActual")) {
+  localStorage.setItem("pizzaPendiente", pizza);
+  window.location.href = "login.html";
+} else {
+  // ...
+}
