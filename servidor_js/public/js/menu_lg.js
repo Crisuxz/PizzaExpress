@@ -30,6 +30,7 @@
   }
   // Agrega al carrito
   function agregarAlCarrito(nombrePizza) {
+    
     var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carrito.push({ nombre: nombrePizza });
     localStorage.setItem("carrito", JSON.stringify(carrito));

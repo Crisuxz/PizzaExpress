@@ -1,8 +1,14 @@
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const email = e.target.email.value;
-  const password = e.target.password.value;
+  const email = e.target.email.value.trim().toLowerCase(); // <-- Normaliza el email
+  const password = e.target.password.value.trim();
+
+  // Validación básica en el frontend
+  if (!email || !password) {
+    alert('Por favor, completa todos los campos.');
+    return;
+  }
 
   try {
     const res = await fetch('/login', {
@@ -11,7 +17,14 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
       body: JSON.stringify({ email, password })
     });
 
-    const data = await res.json();
+    // Si la respuesta no es JSON válido, mostrar error genérico
+    let data;
+    try {
+      data = await res.json();
+    } catch {
+      alert('Error inesperado en el servidor.');
+      return;
+    }
 
     if (data.success) {
       alert('✅ Inicio de sesión exitoso. Redirigiendo...');
