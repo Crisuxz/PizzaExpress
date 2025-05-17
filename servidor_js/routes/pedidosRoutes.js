@@ -39,5 +39,40 @@ module.exports = (db) => {
     );
   });
 
+  // Obtener todos los pedidos con nombre de usuario
+  router.get('/todos', (req, res) => {
+    db.query(
+      `SELECT pedidos.*, usuarios.fullname AS cliente
+       FROM pedidos
+       JOIN usuarios ON pedidos.usuario_id = usuarios.id
+       ORDER BY pedidos.fecha DESC`,
+      [],
+      (err, rows) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).json({ success: false, message: "Error al obtener pedidos" });
+        }
+        res.json({ success: true, pedidos: rows });
+      }
+    );
+  });
+
+  // Actualizar estado de un pedido
+  router.put('/estado/:id', (req, res) => {
+    const id = req.params.id;
+    const { estado } = req.body;
+    db.query(
+      'UPDATE pedidos SET estado = ? WHERE id = ?',
+      [estado, id],
+      (err, result) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).json({ success: false, message: "Error al actualizar estado" });
+        }
+        res.json({ success: true });
+      }
+    );
+  });
+
   return router;
 };
