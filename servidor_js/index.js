@@ -58,6 +58,10 @@ app.use(session({
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/pizzas', require('./routes/pizzaRoutes'));
 
+// Importa y usa las rutas de pedidos, pasando la conexión db
+const pedidoRoutes = require('./routes/pedidosRoutes')(db);
+app.use('/api/pedidos', pedidoRoutes);
+
 // =======================
 // Archivos estáticos
 // =======================
@@ -86,7 +90,7 @@ app.get('/pedidos.html', requireLogin, (req, res) => {
 
 // Ruta para iniciar sesión (desde formulario tradicional)
 app.post('/login', async (req, res) => {
-  const email = req.body.email.trim().toLowerCase(); // <-- Normaliza el email
+  const email = req.body.email.trim().toLowerCase();
   const password = req.body.password;
 
   if (!email || !password) {
@@ -96,7 +100,8 @@ app.post('/login', async (req, res) => {
   // Primero, revisa si es un admin predefinido
   if (isAdmin(email, password)) {
     req.session.usuario = { email, isAdmin: true };
-    return res.json({ success: true, message: 'Inicio de sesión como administrador.' });
+    // Envía el email como nombre para el admin (puedes poner un nombre fijo si prefieres)
+    return res.json({ success: true, message: 'Inicio de sesión como administrador.', nombre: email });
   }
 
   // Si no es admin, sigue con la lógica normal de usuarios
@@ -113,7 +118,8 @@ app.post('/login', async (req, res) => {
     }
 
     req.session.usuario = { id: user.id, fullname: user.fullname, email: user.email };
-    res.json({ success: true, message: 'Inicio de sesión exitoso.' });
+    // Envía el nombre real del usuario
+    res.json({ success: true, message: 'Inicio de sesión exitoso.', nombre: user.fullname, id: user.id });
   } catch (error) {
     console.error('❌ Error en el servidor:', error);
     res.json({ success: false, message: 'Error en el servidor.' });

@@ -38,12 +38,15 @@ function agregarAlCarrito(nombrePizza) {
 
 // Asocia los botones a su evento
 document.addEventListener("DOMContentLoaded", function () {
-  var botones = document.querySelectorAll("button.btn-danger");
+  var botones = document.querySelectorAll("button.btn-danger[data-bs-toggle='modal']");
 
   botones.forEach(function (boton) {
-    var nombrePizza = boton.closest(".card-body").querySelector(".card-title").textContent.trim();
-    boton.addEventListener("click", function () {
-      handleAgregarPedido(nombrePizza);
+    boton.addEventListener("click", function (e) {
+      if (!localStorage.getItem("usuarioActual")) {
+        e.preventDefault();
+        window.location.href = "login.html";
+      }
+      // Si está logueado, NO hagas preventDefault, deja que Bootstrap abra el modal
     });
   });
 });

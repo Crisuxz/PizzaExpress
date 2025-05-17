@@ -12,9 +12,8 @@
 </head>
 
 <body>
-    <header id="navbar">
-
-    </header>
+    <header id="navbar"></header>
+    <script src="js/navbarLoader.js"></script>
     <div class="img pt-5">
         <div class="d-inline-block p-5 text-left w-25">
             <h2 class="fw-bold">Las mejores pizzas artesanales</h2>
@@ -147,21 +146,12 @@
                 </div>
         </section>
     </main>
-    <div id="footer">
-
-    </div>
+    <div id="footer"></div>
     <script>
         fetch('footer.html')
             .then(res => res.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;
-            });
-    </script>
-    <script>
-        fetch('navbar.html')
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
             });
     </script>
 </body>

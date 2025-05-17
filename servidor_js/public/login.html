@@ -9,9 +9,12 @@
 </head>
 
 <body class="bg-light">
-
+  <script>
+    localStorage.removeItem("usuarioActual");
+  </script>
   <!-- Navbar cargado dinámicamente -->
   <header id="navbar"></header>
+  <script src="js/navbarLoader.js"></script>
 
   <!-- Contenido centrado verticalmente sin que el navbar afecte -->
   <div class="d-flex justify-content-center align-items-center vh-100">
@@ -68,13 +71,6 @@
       .then(res => res.text())
       .then(data => {
         document.getElementById('footer').innerHTML = data;
-      });
-  </script>
-  <script>
-    fetch('navbar.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('navbar').innerHTML = data;
       });
   </script>
 </body>

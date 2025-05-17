@@ -27,9 +27,11 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     }
 
     if (data.success) {
-      localStorage.setItem("usuarioActual", email); // <-- Agrega esto
+      localStorage.setItem("usuarioActual", email);
+      if (data.nombre) localStorage.setItem("nombreUsuario", data.nombre);
+      if (data.id) localStorage.setItem("usuarioId", data.id); // <-- Guarda el id
       alert('✅ Inicio de sesión exitoso. Redirigiendo...');
-      window.location.href = '/'; // Redirige al inicio
+      window.location.href = '/';
     } else {
       alert('❌ Error: ' + data.message);
     }

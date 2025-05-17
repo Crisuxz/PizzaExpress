@@ -11,7 +11,7 @@
 
 <body>
   <header id="navbar"></header>
-
+  <script src="js/navbarLoader.js"></script>
   <main>
     <form class="form-box" id="registroForm">
       <h2>Crear una cuenta</h2>
@@ -24,13 +24,9 @@
       <button type="submit">Registrarse</button>
     </form>
   </main>
-
   <div id="footer"></div>
   <script src="/js/registro.js"></script>
   <script>
-    fetch('navbar.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('navbar').innerHTML = data);
     fetch('footer.html')
       .then(res => res.text())
       .then(data => document.getElementById('footer').innerHTML = data);
