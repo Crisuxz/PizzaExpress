@@ -2,13 +2,17 @@ document.getElementById('registroForm').addEventListener('submit', async (e) => 
   e.preventDefault();
 
   const fullname = e.target.fullname.value;
-  const email = e.target.email.value.trim().toLowerCase(); // <-- Normaliza el email
+  const email = e.target.email.value.trim().toLowerCase();
   const address = e.target.address.value;
   const password = e.target.password.value;
   const confirmPassword = e.target.confirmPassword.value;
 
   if (password !== confirmPassword) {
-    alert('❌ Las contraseñas no coinciden.');
+    Swal.fire({
+      icon: 'error',
+      title: 'Contraseñas no coinciden',
+      text: 'Las contraseñas ingresadas no son iguales.'
+    });
     return;
   }
 
@@ -22,13 +26,28 @@ document.getElementById('registroForm').addEventListener('submit', async (e) => 
     const data = await res.json();
 
     if (data.success) {
-      alert('✅ Registro exitoso. Redirigiendo...');
-      window.location.href = 'login.html';
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro exitoso',
+        text: 'Redirigiendo al inicio de sesión...',
+        timer: 1500,
+        showConfirmButton: false
+      }).then(() => {
+        window.location.href = 'login.html';
+      });
     } else {
-      alert('❌ Error: ' + data.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: data.message
+      });
     }
   } catch (error) {
     console.error('❌ Error en la solicitud:', error);
-    alert('❌ Error en el servidor. Inténtalo más tarde.');
+    Swal.fire({
+      icon: 'error',
+      title: 'Error en el servidor',
+      text: 'Inténtalo más tarde.'
+    });
   }
 });

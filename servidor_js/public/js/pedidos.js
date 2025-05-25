@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async function () {
+ document.addEventListener("DOMContentLoaded", async function () {
   const usuarioId = localStorage.getItem("usuarioId");
   if (!usuarioId) {
     document.getElementById("pedidosContainer").innerHTML = "<p class='text-danger'>Debes iniciar sesión para ver tus pedidos.</p>";

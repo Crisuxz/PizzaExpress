@@ -30,14 +30,29 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
       localStorage.setItem("usuarioActual", email);
       if (data.nombre) localStorage.setItem("nombreUsuario", data.nombre);
       if (data.id) localStorage.setItem("usuarioId", data.id); // <-- Guarda el id
-      alert('✅ Inicio de sesión exitoso. Redirigiendo...');
-      window.location.href = '/';
+      Swal.fire({
+        icon: 'success',
+        title: '¡Bienvenido!',
+        text: 'Inicio de sesión exitoso. Redirigiendo...',
+        timer: 1500,
+        showConfirmButton: false
+      }).then(() => {
+        window.location.href = '/';
+      });
     } else {
-      alert('❌ Error: ' + data.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: data.message
+      });
     }
   } catch (error) {
     console.error('❌ Error en la solicitud:', error);
-    alert('❌ Error en el servidor. Inténtalo más tarde.');
+    Swal.fire({
+      icon: 'error',
+      title: 'Error en el servidor',
+      text: 'Inténtalo más tarde.'
+    });
   }
 });
 

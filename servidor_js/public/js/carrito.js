@@ -61,15 +61,49 @@ function cambiarCantidad(idx, delta) {
 }
 
 function eliminarPizza(idx) {
-  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-  carrito.splice(idx, 1);
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  renderCarrito();
+  Swal.fire({
+    title: '¿Eliminar pizza?',
+    text: "Esta acción no se puede deshacer.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Eliminar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.splice(idx, 1);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      renderCarrito();
+      Swal.fire({
+        icon: 'success',
+        title: 'Eliminado',
+        timer: 1000,
+        showConfirmButton: false
+      });
+    }
+  });
 }
 
 document.getElementById("btnVaciarCarrito").addEventListener("click", function () {
-  localStorage.removeItem("carrito");
-  renderCarrito();
+  Swal.fire({
+    title: '¿Vaciar carrito?',
+    text: "¿Estás seguro de eliminar todos los productos?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, vaciar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      localStorage.removeItem("carrito");
+      renderCarrito();
+      Swal.fire({
+        icon: 'success',
+        title: 'Carrito vaciado',
+        timer: 1000,
+        showConfirmButton: false
+      });
+    }
+  });
 });
 
 // Método de pago
@@ -101,7 +135,11 @@ document.getElementById("btnRealizarPedido").onclick = async function () {
   const metodoPago = document.getElementById("inputMetodoPago").value;
 
   if (!carrito.length || !usuario_id || !nombre || !direccion || !metodoPago) {
-    alert("Completa todos los campos y agrega al menos una pizza.");
+    Swal.fire({
+      icon: 'warning',
+      title: 'Campos incompletos',
+      text: 'Completa todos los campos y agrega al menos una pizza.'
+    });
     return;
   }
 
@@ -113,17 +151,32 @@ document.getElementById("btnRealizarPedido").onclick = async function () {
     });
     const data = await res.json();
     if (data.success) {
-      // Obtén el id del pedido recién insertado (modifica el backend para devolverlo)
       if (data.pedidoId) {
         localStorage.setItem("ultimoPedidoId", data.pedidoId);
       }
       localStorage.removeItem("carrito");
-      window.location.href = "pedido_confirmado.html";
+      Swal.fire({
+        icon: 'success',
+        title: '¡Pedido realizado!',
+        text: 'Tu pedido ha sido registrado correctamente.',
+        timer: 1500,
+        showConfirmButton: false
+      }).then(() => {
+        window.location.href = "pedido_confirmado.html";
+      });
     } else {
-      alert("Error: " + data.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: data.message
+      });
     }
   } catch (err) {
-    alert("Error al conectar con el servidor.");
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Error al conectar con el servidor.'
+    });
   }
 };
 

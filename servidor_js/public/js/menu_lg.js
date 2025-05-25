@@ -1,13 +1,19 @@
 // Hacer la función accesible globalmente
 window.agregarAlCarrito = function(pizza) {
-  if (!localStorage.getItem("usuarioActual")) { // Cambiado a usuarioActual
+  if (!localStorage.getItem("usuarioActual")) {
     localStorage.setItem("pizzaPendiente", pizza);
-    window.location.href = "login.html"; // Redirige a login, no a registro
+    window.location.href = "login.html";
   } else {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carrito.push(pizza);
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    alert("Pizza agregada al carrito");
+    Swal.fire({
+      icon: 'success',
+      title: '¡Agregado!',
+      text: 'Pizza agregada al carrito.',
+      timer: 1200,
+      showConfirmButton: false
+    });
   }
 };
 
@@ -24,8 +30,15 @@ function handleAgregarPedido(nombrePizza) {
     window.location.href = "login.html";
   } else {
     agregarAlCarrito(nombrePizza);
-    alert(nombrePizza + " fue agregada al carrito.");
-    window.location.href = "index.html"; // Redirige al inicio después de agregar
+    Swal.fire({
+      icon: 'success',
+      title: '¡Agregado!',
+      text: nombrePizza + " fue agregada al carrito.",
+      timer: 1200,
+      showConfirmButton: false
+    }).then(() => {
+      window.location.href = "index.html";
+    });
   }
 }
 
