@@ -1,3 +1,15 @@
+body, html {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+.container, .container-fluid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .img {
   background-image: url(/img/e9e1e82cb873-pepperoni-pizza-abob-t.webp);
   background-repeat: no-repeat;
@@ -81,4 +93,130 @@
 
 a {
   text-decoration: none;
+}
+
+/* General card and form-box styles */
+.card, .form-box {
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+/* =======================
+   MEDIA QUERY: ≤ 1080px
+   ======================= */
+@media (max-width: 1080px) {
+  .container, .container-fluid {
+    max-width: 98vw;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .form-box {
+    max-width: 95vw;
+    padding: 2rem 1rem;
+  }
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Responsive: Tablet */
+@media (max-width: 992px) {
+  .form-box {
+    width: 90% !important;
+    min-width: unset;
+  }
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* =======================
+   MEDIA QUERY: ≤ 768px (Tablets)
+   ======================= */
+@media (max-width: 768px) {
+  .container, .container-fluid {
+    max-width: 100vw;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  .form-box {
+    padding: 1.5rem 0.5rem;
+    width: 100% !important;
+    min-width: unset;
+    margin: 1rem auto;
+  }
+  .card {
+    margin-bottom: 1rem;
+  }
+  h2, h4, h5 {
+    font-size: 1.2rem !important;
+  }
+  .btn, button {
+    font-size: 1rem !important;
+    width: 100% !important;
+    margin-bottom: 0.5rem;
+  }
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  table {
+    font-size: 0.95rem;
+  }
+  th, td {
+    padding: 0.4rem !important;
+  }
+  .modal-dialog {
+    margin: 0.5rem !important;
+    max-width: 98vw !important;
+  }
+  .modal-content {
+    padding: 0.5rem !important;
+  }
+}
+
+/* =======================
+   MEDIA QUERY: ≤ 368px (Celulares pequeños)
+   ======================= */
+@media (max-width: 368px) {
+  .container, .container-fluid {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+  .form-box {
+    padding: 1rem 0.2rem;
+    min-width: unset;
+    max-width: 99vw;
+  }
+  h2, h4, h5 {
+    font-size: 1rem !important;
+  }
+  .btn, button {
+    font-size: 0.95rem !important;
+    padding: 0.5rem 0.7rem !important;
+  }
+  .card {
+    margin-bottom: 0.7rem;
+    padding: 0.5rem;
+  }
+  table {
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 0.2rem !important;
+  }
+}
+
+/* =======================
+   UTILIDADES EXTRAS
+   ======================= */
+.table-responsive {
+  width: 100%;
+}
+input, select, textarea {
+  border-radius: 0.5rem !important;
 }
